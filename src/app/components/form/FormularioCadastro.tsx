@@ -1,16 +1,16 @@
 "use client";
 
 import React from "react";
-import { Form } from "../form";
+import { Form } from ".";
 import Image from "next/image";
 import Logo from "@/app/image/logoCWW.png";
 import { useGlobalContext } from "@/context/globalcontext";
 
-const Formulario = () => {
-  const { modal,setModal } = useGlobalContext();
+const FormularioCadastro = () => {
+  const { modalCadastro, setModalCadastro } = useGlobalContext();
 
-  if (!modal) {
-    return <div></div>;
+  if (!modalCadastro) {
+    return null;
   }
 
   return (
@@ -23,7 +23,7 @@ const Formulario = () => {
           width={60}
           height={150}
           className="hover:scale-105 duration-700 cursor-pointer"
-          onClick={(()=>setModal(false))}
+          onClick={() => setModalCadastro(false)}
         />
       </div>
       <label htmlFor="email">Email</label>
@@ -34,18 +34,18 @@ const Formulario = () => {
         placeholder="Digite seu e-mail"
         required
       />
-      <label htmlFor="Nome">Nome</label>
+      <label htmlFor="nome">Nome</label>
       <Form.Input
         className="bg-gray-800 rounded-[25px] p-2"
-        id="Nome"
+        id="nome"
         type="text"
         placeholder="Digite seu nome"
         required
       />
-      <label htmlFor="Senha">Senha</label>
+      <label htmlFor="senha">Senha</label>
       <Form.Input
         className="bg-gray-800 rounded-[25px] p-2"
-        id="Senha"
+        id="senha"
         type="password"
         placeholder="Digite sua senha"
         required
@@ -67,4 +67,4 @@ const Formulario = () => {
   );
 };
 
-export default Formulario;
+export default FormularioCadastro;

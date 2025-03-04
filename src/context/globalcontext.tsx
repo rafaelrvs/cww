@@ -4,8 +4,10 @@ import React, { useState } from "react";
 
 // Definição do tipo do contexto global
 type IGlobalContext = {
-  modal: boolean;
-  setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  modalCadastro: boolean;
+  setModalCadastro: React.Dispatch<React.SetStateAction<boolean>>;
+  modalLogin: boolean;
+  setModalLogin: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 // Criando o Contexto Global
@@ -28,10 +30,15 @@ export function GlobalContextProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [modal, setModal] = useState<boolean>(false);
+  const [modalCadastro, setModalCadastro] = useState<boolean>(false);
+  const [modalLogin, setModalLogin] = useState<boolean>(false);
 
   return (
-    <GlobalContext.Provider value={{ modal, setModal }}>
+    <GlobalContext.Provider value={{ 
+        modalCadastro, setModalCadastro,
+        modalLogin, setModalLogin
+
+     }}>
       {children}
     </GlobalContext.Provider>
   );
